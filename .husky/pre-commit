@@ -1,7 +1,6 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
 
-cd infrastructure || exit 1
 terraform fmt -check -recursive
 terraform validate
 tflint
