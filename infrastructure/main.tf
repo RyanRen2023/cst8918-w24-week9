@@ -114,14 +114,5 @@ resource "azurerm_linux_virtual_machine" "webserver" {
     version   = "latest"
   }
 
-  computer_name                   = "${var.labelPrefix}A05VM"
-  admin_username                  = var.admin_username
-  disable_password_authentication = true
 
-  admin_ssh_key {
-    username   = var.admin_username
-    public_key = file("~/.ssh/id_rsa.pub")
-  }
-
-  custom_data = data.cloudinit_config.init.rendered
 }
