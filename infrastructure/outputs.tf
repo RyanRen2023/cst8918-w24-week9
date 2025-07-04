@@ -11,6 +11,6 @@ output "nic_name" {
   value = azurerm_network_interface.webserver.name
 }
 
-output "public_ip" {
+output "public_ip" 
   value = azurerm_linux_virtual_machine.webserver.public_ip_address
 }

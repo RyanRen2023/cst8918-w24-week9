@@ -20,7 +20,7 @@ jobs:
     outputs:
       CHECK_STATUS: "${{ env.CHECK_STATUS }}"
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 2
       - name: Fetch changed files
@@ -51,6 +51,14 @@ jobs:
               fi
             fi
           done
+            
+      - name: terraform validate
+        uses: dflook/terraform-validate@v2
+        id: validate
+        with:
+          path: infrastructure
       - name: Process check
         if: always()
         run: exit $CHECK_STATUS
+
+ 
